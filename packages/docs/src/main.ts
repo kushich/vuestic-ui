@@ -10,6 +10,9 @@ import { VuesticConfig } from './config/vuestic-config'
 import { useGtag } from './services/gtag'
 import { useTranslateIfExists } from './locales/translateIfExistsPlugin'
 import { useMeta } from './services/vue-meta'
+import { showBuildInfo } from '@/utilities/utils'
+
+showBuildInfo()
 
 const app = createApp(App)
 

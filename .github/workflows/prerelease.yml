@@ -4,8 +4,8 @@ name: Prerelease
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Patch (minor, ...)'     
+      npmVersion:
+        description: 'npm version type (major, minor, patch)'     
         required: true
         default: 'minor'
 

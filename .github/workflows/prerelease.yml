@@ -4,8 +4,8 @@ name: Prerelease
 on:
   workflow_dispatch:
     inputs:
-      npmVersion:
-        description: 'npm version type (major, minor, patch)'     
+      bumpType:
+        description: 'Print bump type (major, minor, patch)'     
         required: true
         default: 'minor'
 
@@ -29,6 +29,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PACKAGEJSON_DIR:  'packages/ui'
+          BUMP_TYPE: ${{ github.event.inputs.bumpType }}
       - name: 'cat package.json'
         run: cat packages/ui/package.json
       - name: 'Output Step'

@@ -26,9 +26,9 @@ jobs:
       - name: 'change version for bug-report template'
         run: |
          cd .github/ISSUE_TEMPLATE/
-         | filename='bug-template.md'
-         | sed -i'.bak' 's/${{ steps.package-version.outputs.current-version }}/${{ github.event.inputs.bumpVersion }}/g' $filename
-         | rm $filename'.bak'
+         filename='bug-template.md'
+         sed -i'.bak' 's/${{ steps.package-version.outputs.current-version }}/${{ github.event.inputs.bumpVersion }}/g' $filename
+         rm $filename'.bak'
       - name: 'cat package.json'
         run: cat packages/ui/package.json
       - name: 'Automated Version Bump'

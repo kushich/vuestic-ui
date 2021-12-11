@@ -4,10 +4,9 @@ name: Prerelease
 on:
   workflow_dispatch:
     inputs:
-      bumpType:
-        description: 'Print bump type (major, minor, patch)'     
+      bumpVersion:
+        description: 'Version of the new release'     
         required: true
-        default: 'minor'
 
 jobs:
   bump-version:
@@ -29,7 +28,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PACKAGEJSON_DIR:  'packages/ui'
-          BUMP_TYPE: ${{ github.event.inputs.bumpType }}
+          BUMP_VERSION: ${{ github.event.inputs.bumpVersion }}
       - name: 'cat package.json'
         run: cat packages/ui/package.json
       - name: 'Output Step'
